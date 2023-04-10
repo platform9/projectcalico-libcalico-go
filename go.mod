@@ -8,6 +8,7 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/go-playground/locales v0.12.1 // indirect
 	github.com/go-playground/universal-translator v0.0.0-20170327191703-71201497bace // indirect
+	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/gorilla/websocket v1.4.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.1.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.9.6 // indirect
@@ -64,5 +65,7 @@ replace (
 	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.18.12
 
 )
+
+replace github.com/dgrijalva/jwt-go => github.com/golang-jwt/jwt/v4 v4.4.2
 
 replace github.com/sirupsen/logrus => github.com/projectcalico/logrus v1.0.4-calico
