@@ -244,13 +244,7 @@ func (c client) ensureClusterInformation(ctx context.Context, calicoVersion, clu
 				newClusterInfo.Name = globalClusterInfoName
 				newClusterInfo.Spec.CalicoVersion = calicoVersion
 				newClusterInfo.Spec.ClusterType = clusterType
-				uuid4, err := uuid.NewV4()
-				if err != nil {
-					log.Warn("failed to generate uuidv4, not setting ClusterGUID")
-					newClusterInfo.Spec.ClusterGUID = ""
-				} else {
-					newClusterInfo.Spec.ClusterGUID = fmt.Sprintf("%s", hex.EncodeToString(uuid4.Bytes()))
-				}
+				newClusterInfo.Spec.ClusterGUID = fmt.Sprintf("%s", hex.EncodeToString(uuid.NewV4().Bytes()))
 				datastoreReady := true
 				newClusterInfo.Spec.DatastoreReady = &datastoreReady
 				_, err = c.ClusterInformation().Create(ctx, newClusterInfo, options.SetOptions{})
@@ -282,13 +276,7 @@ func (c client) ensureClusterInformation(ctx context.Context, calicoVersion, clu
 		}
 
 		if clusterInfo.Spec.ClusterGUID == "" {
-			uuid4, err := uuid.NewV4()
-			if err != nil {
-				log.Warn("failed to generate uuidv4, not setting ClusterGUID")
-				clusterInfo.Spec.ClusterGUID = ""
-			} else {
-				clusterInfo.Spec.ClusterGUID = fmt.Sprintf("%s", hex.EncodeToString(uuid4.Bytes()))
-			}
+			clusterInfo.Spec.ClusterGUID = fmt.Sprintf("%s", hex.EncodeToString(uuid.NewV4().Bytes()))
 			updateNeeded = true
 		} else {
 			log.WithField("ClusterGUID", clusterInfo.Spec.ClusterGUID).Debug("Cluster GUID value already set")
