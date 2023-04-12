@@ -40,7 +40,7 @@ require (
 
 replace (
 	github.com/Microsoft/hcsshim => github.com/projectcalico/hcsshim v0.8.9-calico
-	github.com/kelseyhightower/confd => ../confd
+	//github.com/kelseyhightower/confd => ../confd
 
 	k8s.io/api => k8s.io/api v0.18.12
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.18.12
@@ -75,7 +75,5 @@ replace github.com/dgrijalva/jwt-go => github.com/golang-jwt/jwt/v4 v4.4.2
 replace golang.org/x/crypto => golang.org/x/crypto v0.0.0-20220314234659-1baeb1ce4c0b
 
 replace golang.org/x/text => golang.org/x/text v0.3.8
-
-replace github.com/satori/go.uuid => github.com/google/uuid v1.3.0
 
 replace github.com/sirupsen/logrus => github.com/projectcalico/logrus v1.0.4-calico
